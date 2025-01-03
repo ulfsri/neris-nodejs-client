@@ -13,7 +13,7 @@ This project contains packages for leveraging the NERIS API. It is open-source s
 - A great place to start if you are integrating with the NERIS platform. 
 - Maintained by the NERIS team in a best-effort.
 - Open to contributions. Please start from [the issue tracker](https://github.com/ulfsri/neris-nodejs-client/issues), especially if a proposed change is large. We can help determine if a change belongs here or in a fork. 
-- Used by the NERIS dev team internally.
+- Used by the NERIS development team internally.
 
 **This repo is not**
 

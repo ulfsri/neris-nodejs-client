@@ -1,6 +1,6 @@
-# Neris NodeJS Api Client
+# NERIS NodeJS Api Client
 
-This project contains packages for leveraging the Neris API. It is open-source so use it however you wish. 
+This project contains packages for leveraging the NERIS API. It is open-source so use it however you wish. 
 
 **Ways you might want to use this library**
 
@@ -10,10 +10,10 @@ This project contains packages for leveraging the Neris API. It is open-source s
 
 **This repo is**
 
-- A great place to start if you are integrating with the Neris platform. 
-- Maintained by the Neris team in a best-effort.
+- A great place to start if you are integrating with the NERIS platform. 
+- Maintained by the NERIS team in a best-effort.
 - Open to contributions. Please start from [the issue tracker](https://github.com/ulfsri/neris-nodejs-client/issues), especially if a proposed change is large. We can help determine if a change belongs here or in a fork. 
-- Used by the Neris dev team internally.
+- Used by the NERIS dev team internally.
 
 **This repo is not**
 
@@ -132,7 +132,7 @@ This could be replaced with a single cli entry point and a bunch of nested opera
 
 As the `tools` directory grows, we'll learn and adjust. If people need to solve very specific problems and the `tools` directory is used for blueprints/examples then this is a good pattern. It could be something else. 
 
-However, if people would like a traditional CLI tool that is versioned and maintained, then someone (community-driven and/or Neris dev team) will need to be a project owner/maintainer to coordinate a roadmap in collaboration with the community, manage the issue tracker, and create releases.
+However, if people would like a traditional CLI tool that is versioned and maintained, then someone (community-driven and/or NERIS dev team) will need to be a project owner/maintainer to coordinate a roadmap in collaboration with the community, manage the issue tracker, and create releases.
 
 ## Can I use this in a web application?
 

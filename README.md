@@ -143,4 +143,4 @@ We haven't worked out the ergonomics yet, but here are a couple ideas.
 - Copy the src folder into your typescript project and just use it. Don't forget the `generate` script from `package.json` so you can update it. 
 - Copy the dist folder into you javascript project and just use it. 
 - Include this as a git-submodule and orchstrate it with your codebase.
-- Fork this repo, then publish the dist folder to your private npm registry, then import it to your web app. This will incur deployment overhead (and why we didn't start here)
+- Fork this repo, then publish the dist folder to your private npm registry, then import it to your web app. This will incur deployment overhead.

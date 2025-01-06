@@ -1,0 +1,56 @@
+{
+  "name": "neris-nodejs-client",
+  "version": "1.0.0",
+  "description": "API client, authentication middleware, and binding for the Neris OpenAPI service",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc --project ./tsconfig-build.json && copyfiles -f ./src/neris-api.d.ts ./dist",
+    "generate_local": "openapi-typescript http://localhost:8000/openapi.json --output src/neris-api.d.ts",
+    "generate_dev": "openapi-typescript https://api-dev.neris.fsri.org/openapi.json --output src/neris-api.d.ts",
+    "generate_test": "openapi-typescript https://api-test.neris.fsri.org/openapi.json --output src/neris-api.d.ts",
+    "generate": "openapi-typescript https://api.neris.fsri.org/openapi.json --output src/neris-api.d.ts",
+    "check": "tsc --noEmit",
+    "lint": "echo no lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ulfsri/neris-nodejs-client.git"
+  },
+  "keywords": [
+    "neris",
+    "fsri",
+    "ulfsri"
+  ],
+  "author": "thomas.messbauer@ul.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ulfsri/neris-nodejs-client/issues"
+  },
+  "homepage": "https://github.com/ulfsri/neris-nodejs-client#readme",
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "semi": true
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "copyfiles": "^2.4.1",
+    "dotenv": "^16.4.7",
+    "msw": "^2.7.0",
+    "openapi-fetch": "^0.13.3",
+    "openapi-typescript": "^7.4.0",
+    "openapi-typescript-fetch": "^2.0.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.6.2",
+    "uuid": "^11.0.3",
+    "vitest": "^2.1.1"
+  }
+}

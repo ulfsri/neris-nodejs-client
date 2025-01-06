@@ -6,7 +6,7 @@ describe('auth middleware. _type == access_token', () => {
   it('sets auth header', async () => {
     const mw = authMiddleware({
       baseUrl: 'http://base.url',
-      auth: { _type: 'access_token', access_token: 'testpasswd' },
+      auth: { _type: 'access_token', access_token: 'AddressingFireProblems' },
     });
 
     expect(mw.onRequest).toBeDefined();
@@ -19,7 +19,7 @@ describe('auth middleware. _type == access_token', () => {
       } as any);
 
       expect(got?.headers.get('test')).toEqual('whatever');
-      expect(got?.headers.get('authorization')).toEqual('Bearer testpasswd');
+      expect(got?.headers.get('authorization')).toEqual('Bearer AddressingFireProblems');
     }
   });
 });
@@ -41,8 +41,8 @@ describe('auth middleware. _type == password', () => {
       fetch: mockFetch,
       auth: {
         _type: 'password',
-        username: 'somebody@nowhere.whatever',
-        password: 'testpasswd',
+        username: 'fsri',
+        password: 'AddressingFireProblems',
       },
     });
 
@@ -73,8 +73,8 @@ describe('auth middleware. _type == password', () => {
       expect(req.url).toEqual('http://base.url/token');
       expect(await req.json()).toEqual({
         grant_type: 'password',
-        username: 'somebody@nowhere.whatever',
-        password: 'testpasswd',
+        username: 'fsri',
+        password: 'AddressingFireProblems',
       });
     }
   });
@@ -106,8 +106,8 @@ describe('auth middleware. _type == password', () => {
       fetch: mockFetch,
       auth: {
         _type: 'password',
-        username: 'somebody@nowhere.whatever',
-        password: 'testpasswd',
+        username: 'fsri',
+        password: 'AddressingFireProblems',
       },
     });
 
@@ -139,16 +139,16 @@ describe('auth middleware. _type == password', () => {
       expect(req0.url).toEqual('http://base.url/token');
       expect(await req0.json()).toEqual({
         grant_type: 'password',
-        username: 'somebody@nowhere.whatever',
-        password: 'testpasswd',
+        username: 'fsri',
+        password: 'AddressingFireProblems',
       });
 
       const req1 = mockFetch.mock.calls[1][0];
       expect(req1.url).toEqual('http://base.url/token');
       expect(await req1.json()).toEqual({
         grant_type: 'password',
-        username: 'somebody@nowhere.whatever',
-        password: 'testpasswd',
+        username: 'fsri',
+        password: 'AddressingFireProblems',
       });
     }
   });

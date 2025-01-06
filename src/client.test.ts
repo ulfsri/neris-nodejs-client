@@ -5,15 +5,15 @@ describe('defaultConfig', () => {
   it('loads password grant', async () => {
     vi.stubEnv('NERIS_BASE_URL', 'http://api.endpoint');
     vi.stubEnv('NERIS_GRANT_TYPE', 'password');
-    vi.stubEnv('NERIS_USERNAME', 'somebody@nowhere.whatever');
-    vi.stubEnv('NERIS_PASSWORD', 'testpasswd');
-    vi.stubEnv('NERIS_CLIENT_ID', 'nope');
-    vi.stubEnv('NERIS_CLIENT_SECRET', 'naw dawg');
+    vi.stubEnv('NERIS_USERNAME', 'fsri');
+    vi.stubEnv('NERIS_PASSWORD', 'AddressingFireProblems');
+    vi.stubEnv('NERIS_CLIENT_ID', 'none');
+    vi.stubEnv('NERIS_CLIENT_SECRET', 'nada');
 
     const got = defaultConfig();
 
     expect(got.baseUrl).toEqual('http://api.endpoint');
-    expect(got.auth).toEqual({ _type: 'password', username: 'somebody@nowhere.whatever', password: 'testpasswd' });
+    expect(got.auth).toEqual({ _type: 'password', username: 'fsri', password: 'AddressingFireProblems' });
   });
 
   it('loads client_credentials grant', async () => {

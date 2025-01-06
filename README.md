@@ -43,7 +43,7 @@ chmod +x ./build.mjs
 ./build.mjs
 ```
 
-If you'd like to build the client against the `dev` or `test` environment, skip to the [Api Client](#api-client).
+If you'd like to build the client against the `test` environment, skip to the [Api Client](#api-client).
 
 
 ## Api Client
@@ -55,7 +55,7 @@ There are two main things to do in this package
 
 **Code Generation**
 
-The generated files are not checked into this repo; You should re-generate them as needed against whichever environment you desire. There are scripts to help you. In addition to `generate`, you'll find scripts for `generate_dev` & `generate_test` for working with pre-release environments.
+The generated files are not checked into this repo; You should re-generate them as needed against whichever environment you desire. There are scripts to help you. In addition to `generate`, you'll find a script for `generate_test` for working with the NERIS pre-release testing environment.
 
 Be sure to run `build` after `generate_*` if you plan to use scripts in the tools folder.
 

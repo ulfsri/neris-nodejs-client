@@ -25,7 +25,7 @@ This project contains packages for leveraging the NERIS API. It is open-source s
 
 ## Installation
 
-This project uses `npm` because it is standard, boring, and included with NodeJS by default. There are other package managers out there and you might prefer one of them. This is a great reason to consider forking the repo. 
+This project uses `npm` because it is standard and included with NodeJS by default. There are other package managers out there and you might prefer one of them. This is a great reason to consider forking the repo. 
 
 **Using the build script**
 

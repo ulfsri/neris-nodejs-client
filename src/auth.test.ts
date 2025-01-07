@@ -70,12 +70,10 @@ describe('auth middleware. _type == password', () => {
       // should only be called 1x b/c the first call sets the access token and it is not expired.
       expect(mockFetch).toHaveBeenCalledTimes(1);
       const req = mockFetch.mock.calls[0][0];
+
       expect(req.url).toEqual('http://base.url/token');
-      expect(await req.json()).toEqual({
-        grant_type: 'password',
-        username: 'fsri',
-        password: 'AddressingFireProblems',
-      });
+      expect(req.headers.get('content-type')).toEqual('application/x-www-form-urlencoded');
+      expect(await req.text()).toEqual(`grant_type=password&username=fsri&password=AddressingFireProblems`);
     }
   });
 
@@ -137,19 +135,14 @@ describe('auth middleware. _type == password', () => {
 
       const req0 = mockFetch.mock.calls[0][0];
       expect(req0.url).toEqual('http://base.url/token');
-      expect(await req0.json()).toEqual({
-        grant_type: 'password',
-        username: 'fsri',
-        password: 'AddressingFireProblems',
-      });
+      expect(req0.headers.get('content-type')).toEqual('application/x-www-form-urlencoded');
+      expect(await req0.text()).toEqual(`grant_type=password&username=fsri&password=AddressingFireProblems`);
 
+      // next call to refresh token since it is expired.
       const req1 = mockFetch.mock.calls[1][0];
       expect(req1.url).toEqual('http://base.url/token');
-      expect(await req1.json()).toEqual({
-        grant_type: 'password',
-        username: 'fsri',
-        password: 'AddressingFireProblems',
-      });
+      expect(req1.headers.get('content-type')).toEqual('application/x-www-form-urlencoded');
+      expect(await req1.text()).toEqual(`grant_type=password&username=fsri&password=AddressingFireProblems`);
     }
   });
 });
@@ -203,7 +196,8 @@ describe('auth middleware. _type == client_credentials', () => {
       const req = mockFetch.mock.calls[0][0];
       expect(req.url).toEqual('http://base.url/token');
       expect(req.headers.get('authorization')).toEqual('Basic MTIzOnNoaGg=');
-      expect(await req.json()).toEqual({ grant_type: 'client_credentials' });
+      expect(req.headers.get('content-type')).toEqual('application/x-www-form-urlencoded');
+      expect(await req.text()).toEqual(`grant_type=client_credentials`);
     }
   });
 
@@ -267,15 +261,14 @@ describe('auth middleware. _type == client_credentials', () => {
 
       const req0 = mockFetch.mock.calls[0][0];
       expect(req0.headers.get('authorization')).toEqual('Basic MTIzOnNoaGg=');
-      expect(await req0.json()).toEqual({ grant_type: 'client_credentials' });
+      expect(req0.headers.get('content-type')).toEqual('application/x-www-form-urlencoded');
+      expect(await req0.text()).toEqual('grant_type=client_credentials');
 
       // next call to refresh token since it is expired.
       const req1 = mockFetch.mock.calls[1][0];
       expect(req1.url).toEqual('http://base.url/token');
-      expect(await req1.json()).toEqual({
-        grant_type: 'refresh_token',
-        refresh_token: 'refresh_token_one',
-      });
+      expect(req1.headers.get('content-type')).toEqual('application/x-www-form-urlencoded');
+      expect(await req1.text()).toEqual('grant_type=refresh_token&refresh_token=refresh_token_one');
     }
   });
 });

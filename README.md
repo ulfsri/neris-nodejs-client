@@ -1,6 +1,6 @@
 # NERIS NodeJS Api Client
 
-This project contains packages for leveraging the NERIS API. It is open-source so use it however you wish. 
+This project contains packages for leveraging the NERIS API.
 
 **Ways you might want to use this library**
 

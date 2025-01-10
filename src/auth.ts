@@ -57,7 +57,13 @@ export const authMiddleware = (config: NerisApiConfig): Middleware => {
           fetch: config.fetch,
         });
 
-        const tokenRes = await client.POST('/token', { body });
+        const tokenRes = await client.POST('/token', {
+          body,
+          headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          bodySerializer(data) {
+            return new URLSearchParams(data as any).toString();
+          },
+        });
 
         if (tokenRes.error) {
           throw new Error(`authentication failed. ${tokenRes.error.detail}`);

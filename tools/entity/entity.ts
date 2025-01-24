@@ -24,8 +24,7 @@ program
     });
 
     if (error) {
-      console.log(chalk.dim(error.detail));
-      console.log(chalk.bold.red('\n⚠️\tError\t⚠️\n'));
+      program.error(JSON.stringify(error.detail));
     } else {
       console.log(chalk.dim(JSON.stringify(data, null, 2)));
       console.log(chalk.bold.green('\n✨\tSuccess\t✨ \n'));
@@ -119,20 +118,44 @@ program
       ];
 
       const client = createNerisClient();
-      const { data, error } = await client.PATCH(`/entity/{neris_id_entity}`, {
+      const resGet = await client.GET(`/entity/{neris_id_entity}`, {
+        params: { path: { neris_id_entity: entityID } },
+      });
+
+      if (resGet.error) {
+        program.error(JSON.stringify(resGet.error.detail));
+      }
+
+      // entity returns two different responses, but they do not match and there is no _type annotation
+      // so we have to guess and coerce this.
+      const dept = resGet.data as components['schemas']['DepartmentResponse'];
+      const existingRegionSets = dept.region_sets || [];
+
+      // PATCH /entity uses region_sets and overwrites the old values.
+      // To avoid data loss, the existing ones need to be pushed back to the API.
+      existingRegionSets.forEach((s) => {
+        const alreadyInUpdate = region_sets.findIndex((r) => r.name === s.name) !== -1;
+
+        if (!alreadyInUpdate) {
+          // why any?
+          // RegionSetResponse.type is a string, but RegionSetPayload.type is an string enum.
+          region_sets.push(s as any);
+        }
+      });
+
+      const resPatch = await client.PATCH(`/entity/{neris_id_entity}`, {
         params: { path: { neris_id_entity: entityID } },
         body: {
           region_sets,
         },
       });
 
-      if (error) {
-        console.log(chalk.dim(error.detail));
-        console.log(chalk.bold.red('\n⚠️\tError\t⚠️\n'));
-      } else {
-        console.log(chalk.dim(JSON.stringify(data, null, 2)));
-        console.log(chalk.bold.green('\n✨\tSuccess\t✨ \n'));
+      if (resPatch.error) {
+        program.error(JSON.stringify(resPatch.error.detail));
       }
+
+      console.log(chalk.dim(JSON.stringify(region_sets, null, 2)));
+      console.log(chalk.bold.green('\n✨\tSuccess\t✨ \n'));
     },
   );
 

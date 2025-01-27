@@ -27,7 +27,7 @@ program
       program.error(JSON.stringify(error.detail));
     } else {
       console.log(chalk.dim(JSON.stringify(data, null, 2)));
-      console.log(chalk.bold.green('\n✨\tSuccess\t✨ \n'));
+      console.log(chalk.bold.green('\n✨ Success ✨'));
     }
   });
 
@@ -37,17 +37,16 @@ program
   .argument('<entityID>', 'Entity ID')
   .option('-f, --filePath <file>', 'Path to a zipfile containing the shapefile(s). e.g. /path/to/geo.zip')
   .option('-n, --name <file>', 'Name of the region set. default: The value for regionType')
-  .option<components['schemas']['TypeRegionValue']>(
+  .requiredOption<components['schemas']['TypeRegionValue']>(
     '-t, --regionType <TypeRegionValue>',
     `Region type. ${typeRegionValueValues.join()}`,
     (val) => {
       if (typeRegionValueValues.indexOf(val as any) === -1) {
-        throw new Error('bad region type');
+        throw new Error(`bad region type. options: ${typeRegionValueValues.join()}`);
       }
 
       return val as components['schemas']['TypeRegionValue'];
     },
-    'JURISDICTION',
   )
   .action(
     async (
@@ -124,6 +123,8 @@ program
 
       if (resGet.error) {
         program.error(JSON.stringify(resGet.error.detail));
+      } else if (resGet.response.status !== 200) {
+        program.error(`Invalid entity. status: ${resGet.response.status} ${resGet.response.statusText}`);
       }
 
       // entity returns two different responses, but they do not match and there is no _type annotation
@@ -154,8 +155,9 @@ program
         program.error(JSON.stringify(resPatch.error.detail));
       }
 
-      console.log(chalk.dim(JSON.stringify(region_sets, null, 2)));
-      console.log(chalk.bold.green('\n✨\tSuccess\t✨ \n'));
+      // console.log(chalk.dim(JSON.stringify(region_sets, null, 2)));
+      console.log(`${dept.name} ${regionType} geometry updated successfully.`);
+      console.log(chalk.bold.green('✨ Success ✨'));
     },
   );
 

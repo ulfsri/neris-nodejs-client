@@ -106,6 +106,8 @@ program
                       },
                     });
                     break;
+                  default:
+                    program.error('Unsupported geometry in shapefile. Must be Polygon or MultiPolygon.');
                 }
               });
 

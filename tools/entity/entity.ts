@@ -50,7 +50,7 @@ program
   )
   .action(
     async (
-      entityID,
+      entityID: string,
       {
         filePath,
         regionType,
@@ -116,6 +116,13 @@ program
         },
       ];
 
+      // entity returns two different responses, but there is no explicit field to check
+      // that typescript can use to guarantee it's a department by checking the response.
+      // The prefix of the entity id can be used to detect the type.
+      if (entityID.substring(0, 2) !== 'FD') {
+        program.error('Entity is not a department.');
+      }
+
       const client = createNerisClient();
       const resGet = await client.GET(`/entity/{neris_id_entity}`, {
         params: { path: { neris_id_entity: entityID } },
@@ -127,8 +134,7 @@ program
         program.error(`Invalid entity. status: ${resGet.response.status} ${resGet.response.statusText}`);
       }
 
-      // entity returns two different responses, but they do not match and there is no _type annotation
-      // so we have to guess and coerce this.
+      // the entity id was validated before the fetch so this type coercion should be ok.
       const dept = resGet.data as components['schemas']['DepartmentResponse'];
       const existingRegionSets = dept.region_sets || [];
 

@@ -89,7 +89,7 @@ Since you bootstrapped this project with `./build.mjs`, all of the scripts in th
 Here are some examples
 
 ```bash
-$ ./tools/entity/entity.ts FD24027077
+./tools/entity/entity.ts fetch FD24027077
 
 {
   "name": "FSRI Fire Department",
@@ -99,13 +99,31 @@ $ ./tools/entity/entity.ts FD24027077
   "state": "MD",
   "zip_code": "21045",
 
-
   ....
 }
 
 ✨ Success ✨ 
 ```
 
+```bash
+./tools/entity/entity.ts upsert_region FD24027077 -f /Users/thomas.messbauer/postgis0/pierre-sd.zip -n fsri_jurisdiction -t JURISDICTION
+
+RegionSet fsri_jurisdiction was added to FSRI Fire Department.
+✨ Success ✨ 
+```
+
+```bash
+./tools/entity/entity.ts remove_region FD24027077 -n fsri_jurisdiction
+
+RegionSet fsri_jurisdiction was removed from FSRI Fire Department.
+✨ Success ✨
+```
+
+**API integrations**
+
+To create a new api integration with a client_id and client_secret, run the following. 
+
+⚠️ IMPORTANT ⚠️ - Save the `client_secret` from the output. There is no way to retrieve it later. You can generate a new one if you lose it.
 
 ```bash
 $ ./tools/api-integrations/create.ts VN00000000 "Test CLI integration"

@@ -1,10 +1,11 @@
 {
   "name": "@ulfsri/neris-nodejs-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "API client, authentication middleware, and binding for the Neris OpenAPI service",
   "files": [
-    "dist"
+    "dist/main.js"
   ],
+  "types": "dist/main.d.ts",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -63,5 +64,6 @@
   "devDependencies": {
     "@types/shpjs": "^3.4.7",
     "standard-version": "^9.5.0"
-  }
+  },
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }

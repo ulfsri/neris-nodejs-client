@@ -132,3 +132,6 @@ dist
 .vscode
 .DS_Store
 src/neris-api.d.ts
+
+# npmrc
+.npmrc

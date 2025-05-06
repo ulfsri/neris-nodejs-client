@@ -1,6 +1,6 @@
 import { components } from './neris-api';
 
-export type DepartmentResponse = components['schemas']['DepartmentResponse'];
+export type DepartmentResponse = components['schemas']['DepartmentWithFeatureFlagsResponse'];
 export type FireMarshalResponse = components['schemas']['FireMarshalResponse'];
 export type EntityResponse = DepartmentResponse | FireMarshalResponse;
 

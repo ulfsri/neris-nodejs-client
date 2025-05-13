@@ -29,7 +29,7 @@ export const authMiddleware = (config: NerisApiConfig): Middleware => {
         case 'client_credentials':
           if (expiresAt.valueOf() - Date.now() < expiresDiff) {
             const encoded = btoa(`${config.auth.client_id}:${config.auth.client_secret}`);
-            headers = { authorization: `Basic ${encoded}` };
+            request.headers.set('authorization', `Basic ${encoded}`);
 
             if (refreshToken) {
               body = {

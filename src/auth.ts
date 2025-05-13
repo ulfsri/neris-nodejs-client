@@ -75,7 +75,7 @@ export const authMiddleware = (config: NerisApiConfig): Middleware => {
           const res = tokenRes.data as components['schemas']['AuthenticationSuccessResponse'];
 
           accessToken = res.access_token;
-          refreshToken = res.refresh_token || refreshToken;
+          refreshToken = res.refresh_token ?? refreshToken;
           expiresAt = new Date(Date.now() + res.expires_in * 1000);
         }
       }

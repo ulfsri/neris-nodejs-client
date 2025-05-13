@@ -12,8 +12,7 @@ export const defaultConfig = (): NerisApiConfig => {
           _type: 'password',
           username: process.env.NERIS_USERNAME || '',
           password: process.env.NERIS_PASSWORD || '',
-        },
-        headers: process.env.NERIS_USER_AGENT || 'NERIS NodeJS Client',
+        }
       };
     case 'client_credentials':
       return {
@@ -22,8 +21,7 @@ export const defaultConfig = (): NerisApiConfig => {
           _type: 'client_credentials',
           client_id: process.env.NERIS_CLIENT_ID || '',
           client_secret: process.env.NERIS_CLIENT_SECRET || '',
-        },
-        headers: process.env.NERIS_USER_AGENT || 'NERIS NodeJS Client',
+        }
       };
     default:
       throw new Error("Bad grant_type. Options are 'client_credentials', or 'password'.");
@@ -37,8 +35,7 @@ export type NerisClient = Client<paths> & {
 export const createNerisClient = (config: NerisApiConfig = defaultConfig()): NerisClient => {
   const client = createClient<paths>({
     baseUrl: config.baseUrl,
-    fetch: config.fetch,
-    headers: config.headers
+    fetch: config.fetch
   });
   const auth = authMiddleware(config);
   client.use(auth);

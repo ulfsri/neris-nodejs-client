@@ -18,4 +18,5 @@ export interface NerisApiConfig {
   baseUrl: string;
   fetch?: (input: Request) => Promise<Response>;
   auth: NerisAuthentication;
+  headers: string;
 }

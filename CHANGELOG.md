@@ -4,10 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.14](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.13...v1.0.14) (2025-09-18)
 
-### [1.0.15](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.14...v1.0.15) (2025-09-18)
-
-### [1.0.14](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.13...v1.0.14) (2025-09-18)
-
 ### [1.0.13](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.12...v1.0.13) (2025-09-17)
 
 ### [1.0.12](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.11...v1.0.12) (2025-08-26)

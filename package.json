@@ -48,21 +48,21 @@
     "semi": true
   },
   "dependencies": {
-    "openapi-fetch": "^0.13.4"
+    "openapi-fetch": "^0.13.8"
   },
   "devDependencies": {
     "@types/shpjs": "^3.4.7",
-    "chalk": "^5.4.1",
+    "chalk": "^5.6.2",
     "commander": "^13.1.0",
     "copyfiles": "^2.4.1",
-    "dotenv": "^16.4.7",
-    "msw": "^2.7.0",
-    "openapi-typescript": "^7.6.1",
-    "openapi-typescript-fetch": "^2.1.0",
-    "prettier": "^3.4.2",
+    "dotenv": "^16.6.1",
+    "msw": "^2.11.2",
+    "openapi-typescript": "^7.9.1",
+    "openapi-typescript-fetch": "^2.2.1",
+    "prettier": "^3.6.2",
     "shpjs": "^6.1.0",
     "standard-version": "^9.5.0",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.8"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }

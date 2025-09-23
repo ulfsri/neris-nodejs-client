@@ -46,7 +46,10 @@ export const createNerisClient = (config: NerisApiConfig = defaultConfig()): Ner
       let req = new Request(url);
 
       if (auth.onRequest) {
-        req = (await auth.onRequest({ request: req } as any)) || req;
+        const result = await auth.onRequest({ request: req } as any);
+        if (result instanceof Request) {
+          req = result;
+        }
       }
 
       const res = await fetch(req);

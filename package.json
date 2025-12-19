@@ -19,7 +19,7 @@
     "generate": "openapi-typescript https://api.neris.fsri.org/openapi.json --default-non-nullable false --enum-values=true --output src/neris-api.d.ts",
     "check": "tsc --noEmit",
     "lint": "echo no lint",
-    "prepare": "npm run generate_dev && npm run build",
+    "prepare": "npm run generate && npm run build",
     "release": "standard-version && git push --follow-tags && npm publish",
     "typecheck": "tsc --noEmit",
     "test": "vitest"

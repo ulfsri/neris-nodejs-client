@@ -12,7 +12,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsc --project ./tsconfig-build.json && copyfiles -f ./src/neris-api.d.ts ./dist",
+    "build": "tsc --project ./tsconfig-build.json && copyfiles-ng -f ./src/neris-api.d.ts ./dist",
     "generate_local": "openapi-typescript http://localhost:8000/openapi.json --default-non-nullable false --enum-values=true --output src/neris-api.d.ts",
     "generate_dev": "openapi-typescript https://api-dev.neris.fsri.org/openapi.json --default-non-nullable false --enum-values=true --output src/neris-api.d.ts",
     "generate_test": "openapi-typescript https://api-test.neris.fsri.org/openapi.json --default-non-nullable false --enum-values=true --output src/neris-api.d.ts",
@@ -54,7 +54,7 @@
     "@types/shpjs": "^3.4.7",
     "chalk": "^5.6.2",
     "commander": "^13.1.0",
-    "copyfiles": "^2.4.1",
+    "copyfiles-ng": "^2.4.6",
     "dotenv": "^16.6.1",
     "msw": "^2.13.3",
     "openapi-typescript": "^7.13.0",

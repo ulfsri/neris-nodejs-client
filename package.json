@@ -56,7 +56,7 @@
     "commander": "^13.1.0",
     "copyfiles-ng": "^2.4.7",
     "dotenv": "^16.6.1",
-    "msw": "^2.13.3",
+    "msw": "^2.14.6",
     "openapi-typescript": "^7.13.0",
     "openapi-typescript-fetch": "^2.2.1",
     "prettier": "^3.8.3",

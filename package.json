@@ -54,7 +54,7 @@
     "@types/shpjs": "^3.4.7",
     "chalk": "^5.6.2",
     "commander": "^13.1.0",
-    "copyfiles-ng": "^2.4.6",
+    "copyfiles-ng": "^2.4.7",
     "dotenv": "^16.6.1",
     "msw": "^2.13.3",
     "openapi-typescript": "^7.13.0",

@@ -56,13 +56,13 @@
     "commander": "^13.1.0",
     "copyfiles-ng": "^2.4.7",
     "dotenv": "^16.6.1",
-    "msw": "^2.14.6",
+    "msw": "^2.15.0",
     "openapi-typescript": "^7.13.0",
     "openapi-typescript-fetch": "^2.2.1",
-    "prettier": "^3.8.3",
+    "prettier": "^3.9.6",
     "shpjs": "^6.2.0",
     "standard-version": "^9.5.0",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.7"
   }
 }

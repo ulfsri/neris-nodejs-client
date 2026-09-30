@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.21](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.20...v1.0.21) (2026-09-30)
+
 ### [1.0.20](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.19...v1.0.20) (2026-06-24)
 
 ### [1.0.19](https://github.com/ulfsri/neris-nodejs-client/compare/v1.0.18...v1.0.19) (2026-05-12)
